@@ -167,17 +167,30 @@ nav {
 main {
     display: grid;
     grid-template-columns: minmax(150px, 25%) 1fr;
-
+    @media(max-width:600px) {
+        display: flex;
+        align-items: stretch;
+    }
     .sidebar {
         font-size: 2rem;
         text-align: center;
+        @media(max-width:600px) {
+            display: none;
+        }
     }
 
     .content {
         display: grid;
         grid-gap: 1rem;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-
+        @media(max-width:600px) {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            .card {
+                width: 100%!important;
+            }
+        }
         .card {
             width: clamp(23ch, 50%, 46ch);
             display: flex;
